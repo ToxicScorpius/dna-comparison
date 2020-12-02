@@ -23,7 +23,7 @@ def dna_seq_len(path):
         return file_len
 
 
-n_diff, n_match = 0, 0
+n_iter, n_diff, n_match = 0, 0, 0
 
 # Associates each character to one another and shows differences
 # Then counts the amount of matches and differences
@@ -47,7 +47,13 @@ for n_iter, (c_str1, c_str2) in\
 print(f"{n_diff} differences")
 
 # Displays the percentage of similarity, with a 2 digits precision
-similarity = "{:.2f}".format(n_match * 100 / n_iter)
+while True:
+    try:
+        similarity = "{:.2f}".format(n_match * 100 / n_iter)
+        break
+    except ZeroDivisionError:
+        print("The file is empty !")
+
 print(f"{similarity}% similar")
 
 stop = timeit.default_timer()
