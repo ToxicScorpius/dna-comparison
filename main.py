@@ -5,7 +5,7 @@ start = timeit.default_timer()
 
 
 def iter_dna_seq(path):
-    """Open the file, ignore the header and turn lines into iterables"""
+    """Open the file, ignore the header and turn lines into iterables."""
     with open(path) as file:
         for line in file:
             if line.startswith(">"):
@@ -14,7 +14,7 @@ def iter_dna_seq(path):
 
 
 def dna_seq_len(path):
-    """Count the number of characters in the file, line by line"""
+    """Count the number of characters in the file, line by line."""
     file_len = 0
     with open(path) as file:
         for line in file:
