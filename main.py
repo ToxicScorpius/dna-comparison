@@ -4,8 +4,8 @@ import timeit
 start = timeit.default_timer()
 
 
-# Opens the file, ignores the header and turns lines into iterables
 def iter_dna_seq(path):
+    """Open the file, ignore the header and turn lines into iterables"""
     with open(path) as file:
         for line in file:
             if line.startswith(">"):
@@ -13,8 +13,8 @@ def iter_dna_seq(path):
             yield from line.strip()
 
 
-# Counts the number of characters in the file, line by line
 def dna_seq_len(path):
+    """Count the number of characters in the file, line by line"""
     file_len = 0
     with open(path) as file:
         for line in file:
