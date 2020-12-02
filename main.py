@@ -18,8 +18,8 @@ def dna_seq_len(path):
     file_len = 0
     with open(path) as file:
         for line in file:
-            line = line.rstrip("\r\n") # Deletes line breaks
-            file_len += len(line) # Adds line characters count to total
+            line = line.rstrip("\r\n")  # Deletes line breaks
+            file_len += len(line)  # Adds line characters count to total
         return file_len
 
 
@@ -32,14 +32,13 @@ for n_iter, (c_str1, c_str2) in\
                               iter_dna_seq("b.txt")),
                   1):
     if c_str1 != c_str2:
-        if c_str1 is None or c_str2 is None: # If a file ends
+        if c_str1 is None or c_str2 is None:  # If a file ends
             longest_str = max(dna_seq_len("a.txt"), dna_seq_len("b.txt"))
             shortest_str = min(dna_seq_len("a.txt"), dna_seq_len("b.txt"))
             n_diff += (longest_str - shortest_str)
             break
-        else:
-            print(f"{n_iter}: {c_str1}, {c_str2}")
-            n_diff += 1
+        print(f"{n_iter}: {c_str1}, {c_str2}")
+        n_diff += 1
 
     else:
         n_match += 1
